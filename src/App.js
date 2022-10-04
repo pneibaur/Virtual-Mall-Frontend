@@ -20,7 +20,7 @@ function App() {
     const data = await response.json();
     setApp(data);
   };
-
+  //
   useEffect(() => {
     getApp();
   }, []);
