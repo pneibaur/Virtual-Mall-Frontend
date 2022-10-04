@@ -1,12 +1,17 @@
 import React from 'react'
-import Store from './Store.jsx'
+import Cart from './Cart.jsx'
+import { Route, Switch } from "react-router-dom"
 
-const Landing = () => {
-  return (
-    <div className='landing'>
-        <h1>Welcome to Virtual Mall</h1>
-        <Store />
-    </div>
+function Landing(props){
+
+  return(
+    <main>
+      <Switch>
+        <Route path="/cart">
+          <Cart />
+        </Route>
+      </Switch>
+    </main>
   )
 }
 
