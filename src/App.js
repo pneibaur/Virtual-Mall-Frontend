@@ -14,7 +14,7 @@ import StoreIndex from "./pages/StoreIndex.jsx";
 function App() {
   const [app, setApp] = useState(null);
 
-  const URL = "https://warm-fortress-13531.herokuapp.com";
+  const URL = "https://warm-fortress-13531.herokuapp.com/store/";
 
   const getApp = async () => {
     const response = await fetch(URL);
