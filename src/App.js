@@ -24,15 +24,15 @@ function App() {
           <Cart/>
         </Route>
         {/* "mallfront" home page */}
-        <Route path="/home">
+        <Route path="/store">
           <Home/>
         </Route>
         {/* store page */}
-        <Route path="/home/:id/product">
+        <Route path="/store/:id">
           <StoreIndex/>
         </Route>
         {/* product details page */}
-        <Route path="/home/:id/product/:id">
+        <Route path="/store/:id/product/:id">
           <ProductsDisplayPage/>
         </Route>
       </Switch>
