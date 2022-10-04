@@ -1,8 +1,5 @@
 import React from 'react'
-import Cart from './Cart.jsx'
-import { Route, Switch, Link } from "react-router-dom"
-import Store from './Store'
-import StoreIndex from '../components/StoreIndex.jsx'
+import { Link } from "react-router-dom"
 
 
 function Landing(props){
@@ -10,9 +7,9 @@ function Landing(props){
   return(
     <main>
       <h3>LANDING PAGE</h3>
-      <Link to="/store"><h5>link to enter mall</h5></Link>
+      <Link to="/home"><h5>link to enter mall</h5></Link>
       <Link to="/cart"><h5>link to cart</h5></Link>
-      <Switch>
+      {/* <Switch>
         <Route exact path="/">
           <StoreIndex />
         </Route>
@@ -20,9 +17,9 @@ function Landing(props){
           <Store />
         </Route>
         <Route path="/store/:id">
-          <Store />
+          <ProductsDisplayPage />
         </Route>
-      </Switch>
+      </Switch> */}
     </main>
   )
 }

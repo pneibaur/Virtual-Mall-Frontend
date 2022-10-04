@@ -5,7 +5,9 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Landing from './pages/Landing';
-import Store from "./pages/Store.jsx"
+import Home from "./pages/Home.jsx"
+import ProductsDisplayPage from "./pages/ProductsDisplayPage.jsx";
+import StoreIndex from "./pages/StoreIndex.jsx";
 
 function App() {
   return (
@@ -13,19 +15,32 @@ function App() {
       <h1>Virtual Mall</h1>
       <Header />
       <Switch>
+        {/* Landing page */}
         <Route exact path='/'>
           <Landing />
         </Route>
+        {/* Cart page */}
         <Route path="/cart">
           <Cart/>
         </Route>
-        <Route path="/store">
-          <Store/>
+        {/* "mallfront" home page */}
+        <Route path="/home">
+          <Home/>
+        </Route>
+        {/* store page */}
+        <Route path="/home/:id/product">
+          <StoreIndex/>
+        </Route>
+        {/* product details page */}
+        <Route path="/home/:id/product/:id">
+          <ProductsDisplayPage/>
         </Route>
       </Switch>
       <Footer />
     </div>
   );
 }
+// landing, mallfront,       storefront,            product details
+// "/"       "/store"     "/store/:id/product" "/store/:id/product/:id"
 
 export default App;
