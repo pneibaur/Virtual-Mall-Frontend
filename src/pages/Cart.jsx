@@ -11,7 +11,6 @@ function Cart(props){
       const response = await fetch(URL)
       const data = await response.json()
       setCart(data)
-      console.log(data)
     }
   
     const createCart = async(cart)=>{
