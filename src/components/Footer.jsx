@@ -1,8 +1,17 @@
 import React from 'react'
+import { Container, Row, Col} from 'react-bootstrap'
 
 const Footer = () => {
   return (
-    <footer>FOOTER COMPONENT</footer>
+    <footer>
+      <Container>
+        <Row>
+          <Col className='text-center py-3'>
+            Copyright &copy; VirtualMall
+          </Col>
+        </Row>
+      </Container>
+    </footer>
   )
 }
 

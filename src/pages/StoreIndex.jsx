@@ -2,8 +2,6 @@ import {React, useState} from 'react'
 import { Link } from "react-router-dom"
 import ProductCard from '../components/ProductCard'
 
-
-
 const StoreIndex = (props) => {
 const id = props.match.params.id
 const stores = props.store
