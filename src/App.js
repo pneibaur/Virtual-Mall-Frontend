@@ -28,11 +28,11 @@ function App() {
           <Home/>
         </Route>
         {/* store page */}
-        <Route path="/home/:id/product">
+        <Route path="/store/:id/product/">
           <StoreIndex/>
         </Route>
         {/* product details page */}
-        <Route path="/home/:id/product/:id">
+        <Route path="/product/:id">
           <ProductsDisplayPage/>
         </Route>
       </Switch>

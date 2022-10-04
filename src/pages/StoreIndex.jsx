@@ -7,7 +7,7 @@ const StoreIndex = () => {
     <div>
       <h2>Store Index page</h2>
       <ProductCard/>
-      <Link to="/home/:id/products/:id">Link to item details page</Link>
+      <Link to="/product/:id">Link to item details page</Link>
     </div>
 
   )
