@@ -24,7 +24,7 @@ function App() {
           <Cart/>
         </Route>
         {/* "mallfront" home page */}
-        <Route path="/home">
+        <Route path="/store">
           <Home/>
         </Route>
         {/* store page */}
