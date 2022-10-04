@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import ProductCard from '../components/ProductCard'
 
-const StoreIndex = () => {
+const StoreIndex = (props) => {
   return (
     <div>
       <h2>Store Index page</h2>
