@@ -1,16 +1,25 @@
 import React from 'react'
-import Cart from './Cart.jsx'
-import { Route, Switch } from "react-router-dom"
+import { Link } from "react-router-dom"
+
 
 function Landing(props){
 
   return(
     <main>
-      <Switch>
-        <Route path="/cart">
-          <Cart />
+      <h3>LANDING PAGE</h3>
+      <Link to="/home"><h5>link to enter mall</h5></Link>
+      <Link to="/cart"><h5>link to cart</h5></Link>
+      {/* <Switch>
+        <Route exact path="/">
+          <StoreIndex />
         </Route>
-      </Switch>
+        <Route path="/store">
+          <Store />
+        </Route>
+        <Route path="/store/:id">
+          <ProductsDisplayPage />
+        </Route>
+      </Switch> */}
     </main>
   )
 }
