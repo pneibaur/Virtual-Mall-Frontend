@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Cart from "./pages/Cart.jsx";
-import { Container } from 'react-bootstrap';
-import './App.css';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Landing from './pages/Landing';
-import Home from "./pages/Home.jsx"
+import { Container } from "react-bootstrap";
+import "./App.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Landing from "./pages/Landing";
+import Home from "./pages/Home.jsx";
 import ProductsDisplayPage from "./pages/ProductsDisplayPage.jsx";
 import StoreIndex from "./pages/StoreIndex.jsx";
 
@@ -28,9 +28,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <Container>
-      <h1 className='text-center py-3'>Virtual Mall</h1>
+        <h1 className="text-center py-3">Virtual Mall</h1>
       </Container>
       <Switch>
         {/* Landing page */}
