@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 function Cart(props){
     const [cart, setCart] = useState(null)
@@ -10,6 +11,7 @@ function Cart(props){
       const response = await fetch(URL)
       const data = await response.json()
       setCart(data)
+      console.log(data)
     }
   
     const createCart = async(cart)=>{
@@ -25,6 +27,12 @@ function Cart(props){
     useEffect(() =>{
       getCart(); 
     }, [])
+    return(
+      <div>
+        <h1>cart page</h1>
+        <Link to="/" ><h3>to landing page</h3></Link>
+      </div>
+    )
 }
 
 export default Cart
