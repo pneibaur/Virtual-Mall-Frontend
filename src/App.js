@@ -10,6 +10,8 @@ import Landing from "./pages/Landing";
 import Home from "./pages/Home.jsx";
 import ProductsDisplayPage from "./pages/ProductsDisplayPage.jsx";
 import StoreIndex from "./pages/StoreIndex.jsx";
+import ProductCard from "./components/ProductCard.jsx";
+import StoreCard from "./components/StoreCard.jsx";
 
 function App() {
   const [app, setApp] = useState(null);
@@ -34,7 +36,7 @@ function App() {
     // update list of apps
     getApp();
   };
-  
+
   useEffect(() => {
     getApp();
   }, []);
@@ -44,31 +46,31 @@ function App() {
       <Header />
       <Container>
         <h1 className="text-center py-3">Virtual Mall</h1>
+
+        <Switch>
+          {/* Landing page */}
+          <Route exact path="/">
+            <Landing />
+          </Route>
+          {/* Cart page */}
+          <Route path="/cart">
+            <Cart />
+          </Route>
+          {/* "mallfront" home page */}
+          <Route path="/home">
+            <Home store={app} createStore={createApp} />
+          </Route>
+          {/* store page */}
+          <Route
+            path="/store/:id/product"
+            render={(rp) => <StoreIndex store={app} {...rp} />}
+          />
+          {/* product details page */}
+          <Route path="/product/:id">
+            <ProductsDisplayPage />
+          </Route>
+        </Switch>
       </Container>
-      <Switch>
-        {/* Landing page */}
-        <Route exact path="/">
-          <Landing />
-        </Route>
-        {/* Cart page */}
-        <Route path="/cart">
-          <Cart />
-        </Route>
-        {/* "mallfront" home page */}
-        <Route path="/home">
-          <Home store={app} createStore={createApp}/>
-        </Route>
-        {/* store page */}
-        <Route path="/store/:id/product/"
-        render={(rp) => (
-          <StoreIndex store={app}
-          {...rp}/>
-        )}/>
-        {/* product details page */}
-        <Route path="/product/:id">
-          <ProductsDisplayPage />
-        </Route>
-      </Switch>
       <Footer />
     </div>
   );
