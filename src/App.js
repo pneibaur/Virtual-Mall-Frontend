@@ -10,6 +10,8 @@ import Landing from './pages/Landing';
 import Home from "./pages/Home.jsx"
 import ProductsDisplayPage from "./pages/ProductsDisplayPage.jsx";
 import StoreIndex from "./pages/StoreIndex.jsx";
+import ProductCard from "./components/ProductCard.jsx";
+import StoreCard from "./components/StoreCard.jsx";
 
 function App() {
   const [app, setApp] = useState(null);
@@ -44,7 +46,7 @@ function App() {
       <Header/>
       <Container>
       <h1 className='text-center py-3'>Virtual Mall</h1>
-      </Container>
+      
       <Switch>
         {/* Landing page */}
         <Route exact path="/">
@@ -59,7 +61,7 @@ function App() {
           <Home store={app} createStore={createApp}/>
         </Route>
         {/* store page */}
-        <Route path="/store/:id/product/"
+        <Route path="/store/:id/product"
         render={(rp) => (
           <StoreIndex store={app}
           {...rp}/>
@@ -69,6 +71,7 @@ function App() {
           <ProductsDisplayPage />
         </Route>
       </Switch>
+      </Container>
       <Footer />
     </div>
   );
