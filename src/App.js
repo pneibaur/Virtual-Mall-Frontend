@@ -21,7 +21,20 @@ function App() {
     const data = await response.json();
     setApp(data);
   };
-  //
+
+  const createApp = async (data) => {
+    // make post request to create app
+    await fetch(URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    // update list of apps
+    getApp();
+  };
+  
   useEffect(() => {
     getApp();
   }, []);
@@ -43,7 +56,7 @@ function App() {
         </Route>
         {/* "mallfront" home page */}
         <Route path="/home">
-          <Home store={app} />
+          <Home store={app} createStore={createApp}/>
         </Route>
         {/* store page */}
         <Route path="/store/:id/product/"
