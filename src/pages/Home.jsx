@@ -28,17 +28,13 @@ const Store = (props) => {
 
     const loaded = () => { 
         return props.store.map((store)=> (
-    
-    <Card className='p-3 rounded col-3'>
-        <a href={`/store/${store._id}/product`}>
-    <Card.Img src={store.image} variant='top'/>
-        </a>
+            <Card className='p-3 rounded col-3'>
+        <Link to= {`/store/${store._id}/product`}>
+    <Card.Img src={store.storeLogo} variant='top'/>
     <Card.Body>
-      <a href={`/store/${store._id}/product`}>
         <Card.Title as ='div'>
           <strong>{store.storeName}</strong>
         </Card.Title>
-      </a>
 
       <Card.Text as="div">
         <div className='my-3'>
@@ -50,6 +46,7 @@ const Store = (props) => {
         Add Text Here
       </Card.Text>
     </Card.Body>
+        </Link>
     </Card>
     
             ))
