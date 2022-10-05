@@ -10,8 +10,6 @@ import Landing from "./pages/Landing";
 import Home from "./pages/Home.jsx";
 import ProductsDisplayPage from "./pages/ProductsDisplayPage.jsx";
 import StoreIndex from "./pages/StoreIndex.jsx";
-import ProductCard from "./components/ProductCard.jsx";
-import StoreCard from "./components/StoreCard.jsx";
 
 function App() {
   const [app, setApp] = useState(null);
@@ -75,7 +73,5 @@ function App() {
     </div>
   );
 }
-// landing, mallfront,       storefront,            product details
-// "/"       "/store"     "/store/:id/product" "/store/:id/product/:id"
 
 export default App;

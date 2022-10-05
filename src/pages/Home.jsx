@@ -1,12 +1,11 @@
 import { React, useState } from 'react'
 import { Link } from "react-router-dom"
-import StoreCard from '../components/StoreCard'
 import { Card, Row, Col } from 'react-bootstrap'
 
 const Store = (props) => {
 
     // state to hold formData
-    const [ newForm, setNewForm ] = useState({
+    const [newForm, setNewForm] = useState({
         storeName: "",
         storeLogo: "",
     });
@@ -26,31 +25,31 @@ const Store = (props) => {
         })
     }
 
-    const loaded = () => { 
-        return props.store.map((store)=> (
-            <Card className='p-3 rounded col-3'>
-        <Link to= {`/store/${store._id}/product`}>
-    <Card.Img src={store.storeLogo} variant='top'/>
-    <Card.Body>
-        <Card.Title as ='div'>
-          <strong>{store.storeName}</strong>
-        </Card.Title>
+    const loaded = () => {
+        return props.store.map((store) => (
+            <Card className='p-3 rounded col-3' key={store._id}>
+                <Link className='link' to={`/store/${store._id}/product`}>
+                    <Card.Img src={store.storeLogo} variant='top' />
+                    <Card.Body>
+                        <Card.Title as='div'>
+                            <strong>{store.storeName}</strong>
+                        </Card.Title>
 
-      <Card.Text as="div">
-        <div className='my-3'>
-          Add Text Here
-        </div>
-      </Card.Text>
+                        <Card.Text as="div">
+                            <div className='my-3'>
+                                Add Text Here
+                            </div>
+                        </Card.Text>
 
-      <Card.Text as="h3">
-        Add Text Here
-      </Card.Text>
-    </Card.Body>
-        </Link>
-    </Card>
-    
-            ))
-        }
+                        <Card.Text as="h3">
+                            Add Text Here
+                        </Card.Text>
+                    </Card.Body>
+                </Link>
+            </Card>
+
+        ))
+    }
 
     const loading = () => {
         return <h2>Loading...</h2>
@@ -59,10 +58,10 @@ const Store = (props) => {
     return (
         <div>
             <Row>
-            <h1>Stores List</h1>
-            {props.store ? loaded() : loading()}
+                <h1>Stores List</h1>
+                {props.store ? loaded() : loading()}
             </Row>
-            
+
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
