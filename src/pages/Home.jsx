@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-
-import React from 'react'
-import { Link } from "react-router-dom"
-
-const Store = (props) => {
-    console.log("this is props ")
-    console.log(props)
-
-    const loaded = () => {
-        return props.store.map((store)=> (
-                <div key={store._id} className="storeFront">
-                    <h1>{store.storeName}</h1>
-                    <Link to={`/store/${store._id}/product`} >Go to store</Link>
-                </div>
-            ))
-=======
 import { React, useState } from 'react'
 import { Link } from "react-router-dom"
 
@@ -47,7 +30,6 @@ const Store = (props) => {
                 <Link to={`/store/${store._id}/product`} >Go to store</Link>
             </div>
         ))
->>>>>>> a952e5fda68362f741390c57cc620321805a2a43
     }
 
     const loading = () => {
@@ -58,8 +40,6 @@ const Store = (props) => {
         <div>
             <h1>Stores List</h1>
             {props.store ? loaded() : loading()}
-<<<<<<< HEAD
-=======
 
             <form onSubmit={handleSubmit}>
                 <input
@@ -78,7 +58,6 @@ const Store = (props) => {
                 />
                 <input type="submit" value="Create a new Store" />
             </form>
->>>>>>> a952e5fda68362f741390c57cc620321805a2a43
         </div>
     )
 }
