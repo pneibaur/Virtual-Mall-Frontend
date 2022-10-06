@@ -1,5 +1,9 @@
 body {
-    background-color: rgb(241, 239, 235);
+    background-color: white;
+    background-image: linear-gradient(#ffffff, #5f5d5a);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .link {
@@ -9,4 +13,20 @@ body {
 .productDisplay {
     max-width: 30em;
     height: auto;
+}
+
+.footer {
+    color: #fcf9f2;
+}
+fieldset {
+    border: 1px solid #fcf9f2;
+    border-radius: 10px;
+}
+
+.inputField, .submit {
+    border: none;
+    border-radius: 5px;
+    padding: 1em;
+    margin: .5em;
+    background-color: #fcf9f2;
 }

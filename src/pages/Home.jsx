@@ -62,29 +62,35 @@ const Store = (props) => {
 
             <Row>
                 <Col className='m-3 py-3 col-12 text-center'>
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            value={newForm.storeName}
-                            name="storeName"
-                            placeholder="Store Name"
-                            onChange={handleChange}
-                        />
-                        <input
-                            type="text"
-                            value={newForm.storeDescription}
-                            name="storeDescription"
-                            placeholder='Brief Description'
-                            onChange={handleChange}
-                        />
-                        <input
-                            type="text"
-                            value={newForm.storeLogo}
-                            name="storeLogo"
-                            placeholder="Store Logo"
-                            onChange={handleChange}
-                        />
-                        <input type="submit" value="Create a new Store" />
+                    <form className='form' onSubmit={handleSubmit}>
+                        <fieldset>
+                            <legend className='footer'>CREATE A NEW STORE</legend>
+                            <input
+                                className='inputField'
+                                type="text"
+                                value={newForm.storeName}
+                                name="storeName"
+                                placeholder="Store Name"
+                                onChange={handleChange}
+                            />
+                            <input
+                                className='inputField'
+                                type="text"
+                                value={newForm.storeDescription}
+                                name="storeDescription"
+                                placeholder='Brief Description'
+                                onChange={handleChange}
+                            />
+                            <input
+                                className='inputField'
+                                type="text"
+                                value={newForm.storeLogo}
+                                name="storeLogo"
+                                placeholder="Store Logo"
+                                onChange={handleChange}
+                            />
+                            <input className='submit' type="submit" value="Create a new Store" />
+                        </fieldset>
                     </form>
                 </Col>
             </Row>

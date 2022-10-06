@@ -112,8 +112,11 @@ const StoreIndex = (props) => {
       </Row>
       <Row>
         <Col className="m-3 py-3 col-12 text-center">
-          <form onSubmit={handleSubmit}>
+          <form className='form' onSubmit={handleSubmit}>
+            <fieldset>
+              <legend className='footer'>CREATE A NEW PRODUCT</legend>
             <input
+              className='inputField'
               type="text"
               value={newForm.productName}
               name="productName"
@@ -121,6 +124,7 @@ const StoreIndex = (props) => {
               onChange={handleChange}
             />
             <input
+              className='inputField'
               type="text"
               value={newForm.productDescription}
               name="productDescription"
@@ -128,6 +132,7 @@ const StoreIndex = (props) => {
               onChange={handleChange}
             />
             <input
+              className='inputField'
               type="text"
               value={newForm.productImage}
               name="productImage"
@@ -135,6 +140,7 @@ const StoreIndex = (props) => {
               onChange={handleChange}
             />
             <input
+              className='inputField'
               type="text"
               value={newForm.creator}
               name="creator"
@@ -142,6 +148,7 @@ const StoreIndex = (props) => {
               onChange={handleChange}
             />
             <input
+              className='inputField'
               type="number"
               value={newForm.price}
               name="price"
@@ -149,13 +156,15 @@ const StoreIndex = (props) => {
               onChange={handleChange}
             />
             <input
+              className='inputField'
               type="number"
               value={newForm.qty}
               name="qty"
               placeholder='Product Quantity'
               onChange={handleChange}
             />
-            <input type="submit" value="Create a new product" />
+            <input className='submit' type="submit" value="Create a new product" />
+            </fieldset>
           </form>
         </Col>
       </Row>
