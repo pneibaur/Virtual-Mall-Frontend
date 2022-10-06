@@ -8,6 +8,7 @@ const Store = (props) => {
     const [newForm, setNewForm] = useState({
         storeName: "",
         storeLogo: "",
+        storeDescription: "",
     });
 
     // handleChange function for form
@@ -22,6 +23,7 @@ const Store = (props) => {
         setNewForm({
             storeName: "",
             storeLogo: "",
+            storeDescription: ""
         })
     }
 
@@ -31,18 +33,14 @@ const Store = (props) => {
                 <Link className='link' to={`/store/${store._id}/product`}>
                     <Card.Img src={store.storeLogo} variant='top' />
                     <Card.Body>
-                        <Card.Title as='div'>
+                        <Card.Title as='h3'>
                             <strong>{store.storeName}</strong>
                         </Card.Title>
 
                         <Card.Text as="div">
                             <div className='my-3'>
-                                Add Text Here
+                                {store.storeDescription}
                             </div>
-                        </Card.Text>
-
-                        <Card.Text as="h3">
-                            Add Text Here
                         </Card.Text>
                     </Card.Body>
                 </Link>
@@ -62,23 +60,34 @@ const Store = (props) => {
                 {props.store ? loaded() : loading()}
             </Row>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={newForm.storeName}
-                    name="storeName"
-                    placeholder="Store Name"
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    value={newForm.storeLogo}
-                    name="storeLogo"
-                    placeholder="Store Logo"
-                    onChange={handleChange}
-                />
-                <input type="submit" value="Create a new Store" />
-            </form>
+            <Row>
+                <Col className='m-3 py-3 col-12 text-center'>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            value={newForm.storeName}
+                            name="storeName"
+                            placeholder="Store Name"
+                            onChange={handleChange}
+                        />
+                        <input
+                            type="text"
+                            value={newForm.storeDescription}
+                            name="storeDescription"
+                            placeholder='Brief Description'
+                            onChange={handleChange}
+                        />
+                        <input
+                            type="text"
+                            value={newForm.storeLogo}
+                            name="storeLogo"
+                            placeholder="Store Logo"
+                            onChange={handleChange}
+                        />
+                        <input type="submit" value="Create a new Store" />
+                    </form>
+                </Col>
+            </Row>
         </div>
     )
 }
