@@ -61,7 +61,7 @@ function App() {
           {/* store page */}
           <Route
             path="/store/:id/product"
-            render={(rp) => <StoreIndex store={app} {...rp} />}
+            render={(rp) => <StoreIndex store={app} getApp={getApp} {...rp} />}
           />
           {/* product details page */}
           <Route path="/product/:id">

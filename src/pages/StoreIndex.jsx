@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { Card, Row, Col } from "react-bootstrap"
 const StoreIndex = (props) => {
   // saves store _id to id var.
@@ -24,6 +24,8 @@ const StoreIndex = (props) => {
       body: JSON.stringify(data)
     })
     getProductList()
+    // props.history.push(`/store/${id}/product`)
+    // window.location.reload(false)
   }
 
   // sets form state
@@ -60,11 +62,12 @@ const StoreIndex = (props) => {
   }, [])
 
   // filters all stores and matches to current store. 
-  const stores = props.store
-  const foundStore = stores.find(s => s._id === id)
+  // THIS PIECE OF SHIT CODE COST ME 8 HOURS OF MY LIFE
+  // const stores = props.store
+  // const foundStore = stores.find(s => s._id === id)
 
   const loaded = () => {
-    return foundStore.productList.map((product) => (
+    return productList.map((product) => (
       <Card className='p-3 rounded col-3' key={product._id}>
         <Link className='link' to={`#`}>
           <Card.Img src={product.productImage} variant='top' />
@@ -88,9 +91,8 @@ const StoreIndex = (props) => {
 
   return (
     <div>
-      <h1>{foundStore.storeName}</h1>
       <Row>
-        {foundStore ? loaded() : loading()}
+        {productList ? loaded() : loading()}
       </Row>
       <Row>
         <Col className="m-3 py-3 col-12 text-center">
@@ -132,11 +134,9 @@ const StoreIndex = (props) => {
             />
             <input type="submit" value="Create a new product" />
           </form>
-
         </Col>
       </Row>
     </div>
-
   )
 }
 
