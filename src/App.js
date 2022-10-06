@@ -8,13 +8,13 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home.jsx";
-import ProductsDisplayPage from "./pages/ProductsDisplayPage.jsx";
 import StoreIndex from "./pages/StoreIndex.jsx";
 
 function App() {
   const [app, setApp] = useState(null);
 
   const URL = "https://warm-fortress-13531.herokuapp.com/store/";
+  // const URL = "http://localhost:4000/store/";
 
   const getApp = async () => {
     const response = await fetch(URL);
@@ -63,10 +63,6 @@ function App() {
             path="/store/:id/product"
             render={(rp) => <StoreIndex store={app} getApp={getApp} {...rp} />}
           />
-          {/* product details page */}
-          <Route path="/product/:id">
-            <ProductsDisplayPage />
-          </Route>
         </Switch>
       </Container>
       <Footer />

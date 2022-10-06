@@ -1,12 +1,14 @@
 import { React, useEffect, useState } from 'react'
-import { Link, useHistory } from "react-router-dom"
+import { Link, Route, Switch } from "react-router-dom"
 import { Card, Row, Col } from "react-bootstrap"
+import ProductsDisplayPage from "../pages/ProductsDisplayPage"
 const StoreIndex = (props) => {
   // saves store _id to id var.
   const id = props.match.params.id
 
   // sets product URL and state
   const productURL = `https://warm-fortress-13531.herokuapp.com/store/${id}/product`
+  // const productURL = `http://localhost:4000/store/${id}/product`
   const [productList, setProductList] = useState(null)
 
   // API call to get all products
@@ -26,6 +28,14 @@ const StoreIndex = (props) => {
     getProductList()
     // props.history.push(`/store/${id}/product`)
     // window.location.reload(false)
+  }
+
+  // delete Product
+  const deleteProduct = async (id) => {
+    await fetch(productURL + "/" + id, {
+      method: "DELETE"
+    })
+    getProductList()
   }
 
   // sets form state
@@ -69,16 +79,12 @@ const StoreIndex = (props) => {
   const loaded = () => {
     return productList.map((product) => (
       <Card className='p-3 rounded col-3' key={product._id}>
-        <Link className='link' to={`#`}>
+        <Link className='link' to={`/store/${id}/product/${product._id}`}>
           <Card.Img src={product.productImage} variant='top' />
           <Card.Body>
             <Card.Title as='h3'>
               <strong>{product.productName}</strong>
             </Card.Title>
-
-            <Card.Text as="div">
-              {product.productDescription}
-            </Card.Text>
           </Card.Body>
         </Link>
       </Card>
@@ -91,6 +97,16 @@ const StoreIndex = (props) => {
 
   return (
     <div>
+      <Switch>
+        {/* product details page */}
+        <Route path="/store/:storeId/product/:prodId" render={(rp) => (
+          <ProductsDisplayPage
+            productList={productList}
+            deleteProduct={deleteProduct}
+            storeId={id}
+            {...rp} />
+        )} />
+      </Switch>
       <Row>
         {productList ? loaded() : loading()}
       </Row>
@@ -116,6 +132,13 @@ const StoreIndex = (props) => {
               value={newForm.productImage}
               name="productImage"
               placeholder="Product Image URL"
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              value={newForm.creator}
+              name="creator"
+              placeholder="Author/Creator"
               onChange={handleChange}
             />
             <input
