@@ -16,12 +16,16 @@ function Landing(props) {
       </Row>
       <Row>
         <Col className='text-center'>
-          <Button className='submit' variant="light">
-            <Link className='link' to="/home"><h5>ENTER MALL</h5></Link>
-          </Button>{' '}
-          <Button className='submit' variant='light'>
-            <Link className='link' to="/cart"><h5>YOUR CART</h5></Link>
-          </Button>
+          <Link className='link' to="/home">
+            <Button className='submit' variant="light">
+              <h5>ENTER MALL</h5>
+            </Button>
+          </Link>
+          <Link className='link' to="/cart">
+            <Button className='submit' variant='light'>
+              <h5>YOUR CART</h5>
+            </Button>
+          </Link>
         </Col>
       </Row>
     </div>

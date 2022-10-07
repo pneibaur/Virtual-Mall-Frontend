@@ -64,7 +64,7 @@ const Store = (props) => {
             </Row>
 
             <Row>
-                <Col className='m-3 py-3 col-12 text-center'>
+                <Col className='m-3 py-3 text-center'>
                     <form className='form' onSubmit={handleSubmit}>
                         <fieldset>
                             <legend className='legend'>CREATE A NEW STORE</legend>
