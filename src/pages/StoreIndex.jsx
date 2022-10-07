@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react'
 import { Link, Route, Switch } from "react-router-dom"
-import { Card, Row, Col } from "react-bootstrap"
+import { Card, Row, Col, Button } from "react-bootstrap"
 import ProductsDisplayPage from "../pages/ProductsDisplayPage"
 const StoreIndex = (props) => {
   // saves store _id to id var.
@@ -97,73 +97,82 @@ const StoreIndex = (props) => {
 
   return (
     <div>
-      <Switch>
-        {/* product details page */}
-        <Route path="/store/:storeId/product/:prodId" render={(rp) => (
-          <ProductsDisplayPage
-            productList={productList}
-            deleteProduct={deleteProduct}
-            storeId={id}
-            {...rp} />
-        )} />
-      </Switch>
+      <Row>
+        <Col>
+          <Switch>
+            {/* product details page */}
+            <Route path="/store/:storeId/product/:prodId" render={(rp) => (
+              <ProductsDisplayPage
+                productList={productList}
+                deleteProduct={deleteProduct}
+                storeId={id}
+                {...rp} />
+            )} />
+          </Switch>
+        </Col>
+        <Col align="end">
+          <Link className='link' to={`/home`} >
+            <Button className='submit' variant='light'>BACK</Button>
+          </Link>
+        </Col>
+      </Row>
       <Row xs={1} md={2} lg={4} >
         {productList ? loaded() : loading()}
       </Row>
       <Row>
-        <Col className="m-3 py-3 col-12 text-center">
+        <Col className="m-3 py-3 text-center">
           <form className='form' onSubmit={handleSubmit}>
             <fieldset>
               <legend className='legend'>CREATE A NEW PRODUCT</legend>
-            <input
-              className='inputField'
-              type="text"
-              value={newForm.productName}
-              name="productName"
-              placeholder="Product Name"
-              onChange={handleChange}
-            />
-            <input
-              className='inputField'
-              type="text"
-              value={newForm.productDescription}
-              name="productDescription"
-              placeholder="Product Description"
-              onChange={handleChange}
-            />
-            <input
-              className='inputField'
-              type="text"
-              value={newForm.productImage}
-              name="productImage"
-              placeholder="Product Image URL"
-              onChange={handleChange}
-            />
-            <input
-              className='inputField'
-              type="text"
-              value={newForm.creator}
-              name="creator"
-              placeholder="Author/Creator"
-              onChange={handleChange}
-            />
-            <input
-              className='inputField'
-              type="number"
-              value={newForm.price}
-              name="price"
-              placeholder='$ Price (numbers only)'
-              onChange={handleChange}
-            />
-            <input
-              className='inputField'
-              type="number"
-              value={newForm.qty}
-              name="qty"
-              placeholder='Product Quantity'
-              onChange={handleChange}
-            />
-            <input className='submit' type="submit" value="Create a new product" />
+              <input
+                className='inputField'
+                type="text"
+                value={newForm.productName}
+                name="productName"
+                placeholder="Product Name"
+                onChange={handleChange}
+              />
+              <input
+                className='inputField'
+                type="text"
+                value={newForm.productDescription}
+                name="productDescription"
+                placeholder="Product Description"
+                onChange={handleChange}
+              />
+              <input
+                className='inputField'
+                type="text"
+                value={newForm.productImage}
+                name="productImage"
+                placeholder="Product Image URL"
+                onChange={handleChange}
+              />
+              <input
+                className='inputField'
+                type="text"
+                value={newForm.creator}
+                name="creator"
+                placeholder="Author/Creator"
+                onChange={handleChange}
+              />
+              <input
+                className='inputField'
+                type="number"
+                value={newForm.price}
+                name="price"
+                placeholder='$ Price (numbers only)'
+                onChange={handleChange}
+              />
+              <input
+                className='inputField'
+                type="number"
+                value={newForm.qty}
+                name="qty"
+                placeholder='Product Quantity'
+                onChange={handleChange}
+              />
+              <input className='submit' type="submit" value="Create a new product" />
             </fieldset>
           </form>
         </Col>
