@@ -71,8 +71,7 @@ const StoreIndex = (props) => {
     getProductList()
   }, [])
 
-  // filters all stores and matches to current store. 
-  // THIS PIECE OF SHIT CODE COST ME 8 HOURS OF MY LIFE
+  // This code doesn't work, and will fail to reload the page. 
   // const stores = props.store
   // const foundStore = stores.find(s => s._id === id)
 
