@@ -43,8 +43,8 @@ function App() {
     <div className="App">
       <Header />
       <Container>
-        <h1 className="text-center py-3">Virtual Mall</h1>
-
+        <h1 className="mallTitle text-center py-3">Virtual Mall</h1>
+        <hr />
         <Switch>
           {/* Landing page */}
           <Route exact path="/">

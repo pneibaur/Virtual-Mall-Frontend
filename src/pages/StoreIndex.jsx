@@ -44,8 +44,8 @@ const StoreIndex = (props) => {
     productDescription: "",
     productImage: "",
     creator: "",
-    price: 0,
-    qty: 0,
+    price: "",
+    qty: "",
   })
 
   //  handle any form changes
@@ -62,8 +62,8 @@ const StoreIndex = (props) => {
       productDescription: "",
       productImage: "",
       creator: "",
-      price: 0,
-      qty: 0,
+      price: "",
+      qty: "",
     })
   }
 
@@ -78,7 +78,7 @@ const StoreIndex = (props) => {
 
   const loaded = () => {
     return productList.map((product) => (
-      <Card className='p-3 rounded col-3' key={product._id}>
+      <Card className='p-3 rounded displayCard' key={product._id}>
         <Link className='link' to={`/store/${id}/product/${product._id}`}>
           <Card.Img src={product.productImage} variant='top' />
           <Card.Body>
@@ -107,14 +107,14 @@ const StoreIndex = (props) => {
             {...rp} />
         )} />
       </Switch>
-      <Row>
+      <Row xs={1} md={2} lg={4} >
         {productList ? loaded() : loading()}
       </Row>
       <Row>
         <Col className="m-3 py-3 col-12 text-center">
           <form className='form' onSubmit={handleSubmit}>
             <fieldset>
-              <legend className='footer'>CREATE A NEW PRODUCT</legend>
+              <legend className='legend'>CREATE A NEW PRODUCT</legend>
             <input
               className='inputField'
               type="text"
@@ -152,7 +152,7 @@ const StoreIndex = (props) => {
               type="number"
               value={newForm.price}
               name="price"
-              placeholder='$ (numbers only)'
+              placeholder='$ Price (numbers only)'
               onChange={handleChange}
             />
             <input

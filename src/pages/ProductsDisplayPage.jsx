@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Row, Col, Container, Button } from "react-bootstrap"
+import { Link } from 'react-router-dom'
 
 const ProductsDisplayPage = (props) => {
   const id = props.match.params.prodId
@@ -13,7 +14,7 @@ const ProductsDisplayPage = (props) => {
 
   return (
     <Container>
-      <Row>
+      <Row xs={1} className='justify-content-md-center'>
         <Col>
           <Card className='rounded p-3 productDisplay' >
             <Card.Img src={foundProduct.productImage} variant='top' />
@@ -37,10 +38,14 @@ const ProductsDisplayPage = (props) => {
               </Card.Text>
               <Button className='rounded btn' variant='success'>ADD TO CART</Button>
               <Button className='rounded btn' onClick={removeProduct} variant='danger'>DELETE</Button>
+              <Link to={`/store/${id}/product`} >
+                <Button className='rounded btn' variant='primary'>EXIT VIEWER</Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>
       </Row>
+      <hr />
     </Container>
   )
 }

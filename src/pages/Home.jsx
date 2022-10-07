@@ -29,7 +29,7 @@ const Store = (props) => {
 
     const loaded = () => {
         return props.store.map((store) => (
-            <Card className='p-3 rounded col-3' key={store._id}>
+            <Card className='p-3 rounded displayCard' sm={12} key={store._id}>
                 <Link className='link' to={`/store/${store._id}/product`}>
                     <Card.Img src={store.storeLogo} variant='top' />
                     <Card.Body>
@@ -45,7 +45,6 @@ const Store = (props) => {
                     </Card.Body>
                 </Link>
             </Card>
-
         ))
     }
 
@@ -56,7 +55,11 @@ const Store = (props) => {
     return (
         <div>
             <Row>
-                <h1>Stores List</h1>
+                <Col className='text-center'>
+                    <h1>STORES</h1>
+                </Col>
+            </Row>
+            <Row xs={1} md={2} lg={4} >
                 {props.store ? loaded() : loading()}
             </Row>
 
@@ -64,7 +67,7 @@ const Store = (props) => {
                 <Col className='m-3 py-3 col-12 text-center'>
                     <form className='form' onSubmit={handleSubmit}>
                         <fieldset>
-                            <legend className='footer'>CREATE A NEW STORE</legend>
+                            <legend className='legend'>CREATE A NEW STORE</legend>
                             <input
                                 className='inputField'
                                 type="text"
