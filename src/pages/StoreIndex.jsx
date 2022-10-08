@@ -1,14 +1,18 @@
 import { React, useEffect, useState } from 'react'
-import { Link, Route, Switch } from "react-router-dom"
-import { Card, Row, Col, Button } from "react-bootstrap"
+import { Link, Route, Switch, useHistory } from "react-router-dom"
+import { Card, Row, Col } from "react-bootstrap"
+import Button from "react-bootstrap/Button"
 import ProductsDisplayPage from "../pages/ProductsDisplayPage"
+
 const StoreIndex = (props) => {
   // saves store _id to id var.
   const id = props.match.params.id
+  const navigate = useHistory()
 
   // sets product URL and state
   // const productURL = `https://warm-fortress-13531.herokuapp.com/store/${id}/product`
   const productURL = `http://localhost:4000/store/${id}/product`
+  const STORE_URL = `http://localhost:4000/store/${id}`
   const [productList, setProductList] = useState(null)
 
   // API call to get all products
@@ -32,10 +36,24 @@ const StoreIndex = (props) => {
 
   // delete Product
   const deleteProduct = async (id) => {
-    await fetch(productURL + "/" + id, {
-      method: "DELETE"
-    })
-    getProductList()
+    const confirmed = window.confirm("**WARNING** \r\nThis will delete your product. \r\nAre you sure you want to delete?")
+    if (confirmed){
+      await fetch(productURL + "/" + id, {
+        method: "DELETE"
+      })
+      getProductList()
+    }
+  }
+
+  // delete store
+  const deleteStore = async () =>{
+    const confirmed = window.confirm("***WARNING*** \r\nDELETING A STORE REMOVES ALL OF ITS PRODUCTS \r\nARE YOU SURE YOU WANT TO DELETE?")
+    if (confirmed){
+      await fetch(STORE_URL, {
+        method: "DELETE"
+      })
+      navigate.replace("/home")
+    }
   }
 
   // sets form state
@@ -113,6 +131,7 @@ const StoreIndex = (props) => {
           <Link className='link' to={`/home`} >
             <Button className='submit' variant='light'>BACK</Button>
           </Link>
+          <Button className="submit" variant='light' onClick={deleteStore}>DELETE STORE</Button>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={4} >

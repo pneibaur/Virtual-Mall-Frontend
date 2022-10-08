@@ -1,8 +1,10 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 import { Card, Row, Col } from 'react-bootstrap'
 
 const Store = (props) => {
+
+    const getStores = props.getApp
 
     // state to hold formData
     const [newForm, setNewForm] = useState({
@@ -26,6 +28,10 @@ const Store = (props) => {
             storeDescription: ""
         })
     }
+
+    useEffect(() =>{
+        getStores()
+    }, [])
 
     const loaded = () => {
         return props.store.map((store) => (

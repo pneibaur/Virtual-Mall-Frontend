@@ -12,11 +12,10 @@ const Login = () => {
     useEffect(() => {
         if (loading) return
         if (user) {
-            console.log("login - found user, redirecting to landing")
             navigate.replace("/")
         }
         if (error) {
-            console.log("login - oops there's an error", error)
+            console.log("from Login.jsx: Oops, there's an error: ", error)
         }
     }, [user, loading])
 
