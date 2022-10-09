@@ -3,7 +3,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../login/firebase.js";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 
 const Header = () => {
 
@@ -54,15 +54,16 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Item>
-              <Nav.Link href="/cart"><i className="fas fa-shopping-cart"></i>
-                Cart</Nav.Link>
+              <Link className="link" to="/cart">
+                <i className="fas fa-shopping-cart"></i> Cart
+              </Link>
             </Nav.Item>
             {<UserCheck isLoggedIn={user} />}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar >
-  );
+  )
 }
 
 export default Header

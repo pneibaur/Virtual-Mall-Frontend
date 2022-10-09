@@ -1,7 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { Row, Col, Button } from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
+import Button from 'react-bootstrap/Button'
 
 function Cart(props) {
   const [cart, setCart] = useState(null)
@@ -32,11 +33,17 @@ function Cart(props) {
       <Row>
         <Col className='text-center'>
           <h2>YOUR CART</h2>
-          <Button className='submit' variant='light'>
-            <Link className='link' to="/" ><h3>BACK</h3></Link>
-          </Button>
+          <br />
+          <h4>This feature is being worked on, but thanks for checking out this page!</h4>
+          <br />
+          <Link className='link' to="/" >
+            <Button className='submit' variant='light'>
+              <h3>BACK</h3>
+            </Button>
+          </Link>
         </Col>
       </Row>
+      <hr />
     </div>
   )
 }
