@@ -7,8 +7,8 @@ const StoreIndex = (props) => {
   const id = props.match.params.id
 
   // sets product URL and state
-  const productURL = `https://warm-fortress-13531.herokuapp.com/store/${id}/product`
-  // const productURL = `http://localhost:4000/store/${id}/product`
+  // const productURL = `https://warm-fortress-13531.herokuapp.com/store/${id}/product`
+  const productURL = `http://localhost:4000/store/${id}/product`
   const [productList, setProductList] = useState(null)
 
   // API call to get all products

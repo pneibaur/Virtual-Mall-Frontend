@@ -9,12 +9,15 @@ import Header from "./components/Header";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home.jsx";
 import StoreIndex from "./pages/StoreIndex.jsx";
+import Login from "./login/Login.jsx";
+import Register from "./login/Register.jsx";
+import Reset from "./login/Reset.jsx";
 
 function App() {
   const [app, setApp] = useState(null);
 
-  const URL = "https://warm-fortress-13531.herokuapp.com/store/";
-  // const URL = "http://localhost:4000/store/";
+  // const URL = "https://warm-fortress-13531.herokuapp.com/store/";
+  const URL = "http://localhost:4000/store/";
 
   const getApp = async () => {
     const response = await fetch(URL);
@@ -49,6 +52,18 @@ function App() {
           {/* Landing page */}
           <Route exact path="/">
             <Landing />
+          </Route>
+          {/* login page */}
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          {/* register new user */}
+          <Route exact path="/register">
+            <Register />
+          </Route>
+          {/* reset password */}
+          <Route exact path="/reset">
+            <Reset />
           </Route>
           {/* Cart page */}
           <Route path="/cart">

@@ -60,3 +60,51 @@ fieldset {
         padding: .5em;
     }
 }
+
+.loginDiv {
+    background-color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 30em;
+    margin: auto;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.loginItem {
+    margin: .5em;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    transition-duration: .4s;
+}
+
+.loginText {
+    background-color: rgb(237, 237, 237);
+    padding: 1em;
+    &:hover {
+        background-color: rgb(251, 251, 251);
+    }
+}
+
+.loginBtn {
+    padding: 1em;
+    background-color: #4abf73;
+    color: white;
+}
+
+.loginGoogle {
+    background-color: #4285f4;
+    img {
+        max-width: 2em;
+    }
+}
