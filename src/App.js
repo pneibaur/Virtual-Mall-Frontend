@@ -16,8 +16,8 @@ import Reset from "./login/Reset.jsx";
 function App() {
   const [app, setApp] = useState(null);
 
-  // const URL = "https://warm-fortress-13531.herokuapp.com/store/";
-  const URL = "http://localhost:4000/store/";
+  const URL = "https://warm-fortress-13531.herokuapp.com/store/";
+  // const URL = "http://localhost:4000/store/";
 
   const getApp = async () => {
     const response = await fetch(URL);
