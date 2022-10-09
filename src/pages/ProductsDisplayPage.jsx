@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, Row, Col, Container, Button } from "react-bootstrap"
+import { Card, Row, Col, Container } from "react-bootstrap"
+import Button from "react-bootstrap/Button"
 import { Link } from 'react-router-dom'
 
 const ProductsDisplayPage = (props) => {
@@ -39,7 +40,7 @@ const ProductsDisplayPage = (props) => {
               <Button className='rounded btn' variant='success'>ADD TO CART</Button>
               <Button className='rounded btn' onClick={removeProduct} variant='danger'>DELETE</Button>
               <Link to={`/store/${id}/product`} >
-                <Button className='rounded btn' variant='primary'>EXIT VIEWER</Button>
+                <Button className='rounded btn' variant='outline-dark'>EXIT VIEWER</Button>
               </Link>
             </Card.Body>
           </Card>

@@ -71,7 +71,7 @@ function App() {
           </Route>
           {/* "mallfront" home page */}
           <Route path="/home">
-            <Home store={app} createStore={createApp} />
+            <Home getApp={getApp} store={app} createStore={createApp} />
           </Route>
           {/* store page */}
           <Route

@@ -41,7 +41,6 @@ const Header = () => {
   useEffect(() => {
     if (loading) return
     if (!user) {
-      console.log("header - no user found. redirecting!")
       return navigate.replace("/login")
     }
     fetchUserName()
