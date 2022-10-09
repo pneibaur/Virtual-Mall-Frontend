@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
+import {auth} from "./login/firebase.js"
+import { useAuthState } from "react-firebase-hooks/auth";
 import Cart from "./pages/Cart.jsx";
 import { Container } from "react-bootstrap";
 import "./App.css";
@@ -15,6 +17,8 @@ import Reset from "./login/Reset.jsx";
 
 function App() {
   const [app, setApp] = useState(null);
+  const [user, loading] = useAuthState(auth)
+  const navigate = useHistory()
 
   const URL = "https://warm-fortress-13531.herokuapp.com/store/";
   // const URL = "http://localhost:4000/store/";
@@ -40,7 +44,11 @@ function App() {
 
   useEffect(() => {
     getApp();
-  }, []);
+    if (loading) return
+    if (!user) {
+      return navigate.replace("/login")
+    }
+  }, [loading, user, navigate]);
 
   return (
     <div className="App">

@@ -7,9 +7,10 @@ import { useHistory, Link } from "react-router-dom"
 
 const Header = () => {
 
-  const [user, loading, error] = useAuthState(auth)
+  const [user, loading] = useAuthState(auth)
   const [name, setName] = useState("")
   const navigate = useHistory()
+  const firstName = name.split(" ")[0]
 
   const fetchUserName = async () => {
     try {
@@ -24,18 +25,14 @@ const Header = () => {
     }
   };
 
-  function User() {
-    return <Nav.Item>Welcome {name} <Nav.Link onClick={logout}>LOGOUT</Nav.Link></Nav.Item>
+  function UserGreet() {
+    if (user) return <Nav.Item>Welcome {firstName}</Nav.Item>
   }
-  function Guest() {
-    return <Nav.Link href="/login"><i className="fas fa-user"></i>Sign In</Nav.Link>
-  }
-
-  const UserCheck = (props) => {
-    const loggedIn = props.isLoggedIn
-    if (loggedIn) {
-      return <User />
-    } else return <Guest />
+  
+  function LoginLogout() {
+    if (user) {
+      return <Nav.Item onClick={logout}><Link className='link'>LOGOUT</Link></Nav.Item>
+    } else return <Nav.Item><Link className='link' to="/login">LOGIN</Link></Nav.Item>
   }
 
   useEffect(() => {
@@ -49,16 +46,17 @@ const Header = () => {
   return (
     <Navbar bg="light" expand="lg" collapseOnSelect>
       <Container>
-        <Navbar.Brand href="/">Virtual Mall</Navbar.Brand>
+        <Navbar.Brand><Link className='link' to={`/`} >Virtual Mall</Link></Navbar.Brand>
+        {<UserGreet/>}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Item>
+            <Nav.Item className="navList">
               <Link className="link" to="/cart">
                 <i className="fas fa-shopping-cart"></i> Cart
               </Link>
             </Nav.Item>
-            {<UserCheck isLoggedIn={user} />}
+            {<LoginLogout/>}
           </Nav>
         </Navbar.Collapse>
       </Container>

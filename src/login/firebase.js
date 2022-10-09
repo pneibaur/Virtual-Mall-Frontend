@@ -17,7 +17,6 @@ import {
     collection,
     where,
     addDoc,
-    doc,
 } from "firebase/firestore"
 
 const firebaseConfig = {
