@@ -20,7 +20,7 @@ function App() {
   const [user, loading] = useAuthState(auth)
   const navigate = useHistory()
 
-  const URL = "https://warm-fortress-13531.herokuapp.com/store/";
+  const URL = "https://virtual-mall.onrender.com/store/";
   // const URL = "http://localhost:4000/store/";
 
   const getApp = async () => {

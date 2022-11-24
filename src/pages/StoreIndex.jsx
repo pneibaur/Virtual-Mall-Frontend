@@ -10,8 +10,8 @@ const StoreIndex = (props) => {
   const navigate = useHistory()
 
   // sets product URL and state
-  const productURL = `https://warm-fortress-13531.herokuapp.com/store/${id}/product`
-  const STORE_URL = `https://warm-fortress-13531.herokuapp.com/store/${id}`
+  const productURL = `https://virtual-mall.onrender.com/store/${id}/product`
+  const STORE_URL = `https://virtual-mall.onrender.com/store/${id}`
   // const productURL = `http://localhost:4000/store/${id}/product`
   // const STORE_URL = `http://localhost:4000/store/${id}`
   const [productList, setProductList] = useState(null)
